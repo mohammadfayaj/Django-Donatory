@@ -3,8 +3,8 @@ This is a social awareness app.That actually, help people to find blood donor.
 The feature is in app very simple an user can post his blood related necessary information &
 user can delete and update his information. Other hand blood donor needy people can search donor by there information's
 
-![Optional Text](https://github.com/mohammadfayaj/Django-authentication/blob/mohammadfayaj-patch-1/Screenshot%20(13).png)
-![Optional Text](https://github.com/mohammadfayaj/Django-authentication/blob/mohammadfayaj-patch-1/Screenshot%20(15).png)
+![Optional Text](https://github.com/mohammadfayaj/Django-Donatory/blob/master/static/donatory.png)
+![Optional Text](https://github.com/mohammadfayaj/Django-Donatory/blob/master/static/form.png)
 
 # Install
 
