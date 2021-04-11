@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedir
 from donatory.models import DonorInformation
 from donatory.forms import DonorInformationForm
 from .filters import DonorInformationFilter
-
+from django.contrib.auth.decorators import login_required
 
 def donatory_home(request):
     template = 'donatory/donatory_home.html'
@@ -10,6 +10,7 @@ def donatory_home(request):
     filter = DonorInformationFilter(request.GET, queryset=donatory_qs)
     return render(request, template, {'filter': filter,})
 
+@login_required
 def donor_blood_form_edit(request,id):
     template = 'donatory/edit.html'
     qs = get_object_or_404(DonorInformation, id=id)
@@ -23,6 +24,7 @@ def donor_blood_form_edit(request,id):
         form = DonorInformationForm(instance=qs)
     return render(request, template, {'form': form, 'qs':qs })
 
+@login_required
 def donor_blood_form_delete(request,id):
     template = 'donatory/confirm_delete.html'
     qs = get_object_or_404(DonorInformation, id=id)
