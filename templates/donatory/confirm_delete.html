@@ -1,0 +1,27 @@
+{% extends 'donatory/base.html' %}
+
+
+{% block content %}
+
+<style>
+	.card{
+		margin-top: 10rem !important;
+	}
+</style>
+
+
+<div class="container p-3 card shadow ui message red">
+
+    <p class="h5 text-danger mt-2">Are you sure, you want to delete?</p> <a type="submit" href="{{ request.META.HTTP_REFERER }}" class="ui button green">Cancel</a> <hr>{{instance.review}}
+    
+
+	<form id="myForm" method="POST" action="">
+	{% csrf_token %}
+
+		<input type="" name="next" value="{{ request.META.HTTP_REFERER }}" style="display: none;">
+		<button type="submit" class="ui button red">Delete</button>
+
+	</form>
+
+</div>
+{% endblock %}

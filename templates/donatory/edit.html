@@ -1,0 +1,53 @@
+{% extends 'donatory/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    #div_id_phone_number #tel_1 {
+        margin: 1rem 0rem 0rem 0rem;
+      }
+    .card{
+        margin-top: 8rem;
+        margin-left: 8rem;
+        position: absolute;
+    }
+</style>
+
+<section class='card container p-5 shadow'>
+<strong class="mb-3 ui horizontal message violet">Update Your Informations Correctly
+</strong>
+<form class="ui form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="field two fields">
+        <div class="field">
+            {{ form.name| as_crispy_field }}
+        </div>
+        <div class="field">
+            {{ form.blood_group| as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="field two fields">
+        <div class="field">
+            {{ form.phone_number| as_crispy_field }}
+        </div>
+        <div class="field">
+            {{ form.profile_picture| as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="field two fields">
+        <div class="field">
+            {{ form.current_address| as_crispy_field }}
+        </div>
+        <div class="field">
+            {{ form.permanent_address| as_crispy_field }}
+        </div>
+    </div>
+    <button class="ui button green" type="submit">Confirm Update</button>
+    </form>
+</section>
+
+
+{% endblock %}

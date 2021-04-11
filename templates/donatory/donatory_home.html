@@ -1,0 +1,81 @@
+{% extends 'donatory/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% include 'donatory/navbar.html' %}
+{% include 'donatory/carosel.html' %}
+
+<section class="container mt-5">
+
+<div class="row mt-3">
+    
+    <div class="col">
+        <form method="get">
+            <div class="input-group mb-3">
+                {{ filter.form.current_address }}
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-success" type="submit"><i class="search icon"></i></button>
+                  </div>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <form method="get">
+            <div class="input-group mb-3">
+                {{ filter.form.blood_group }}
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-primary" type="submit"><i class="search icon"></i></button>
+                  </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<Strong class="text-success">LIST OF DONOR</Strong>
+<table class="ui very basic collapsing celled table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Blood Group</th>
+            <th>Phone Number</th>
+            <th>Current Address</th>
+            <th>Permanent Address</th>
+            <th>Created Date</th>
+            <th>Edit</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in filter.qs %}
+        {% if i in filter.qs %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td> <img class="ui mini rounded image" src="{{i.profile_picture.url}}" alt="" style="height: 50px; width: 50px;"></td>
+            <td class="font-weight-bold">{{i.name}}</td>
+            <td> <span class="ui horizontal label red">{{i.blood_group}}</span></td>
+            <td><span class="ui horizontal label violet">{{i.phone_number}}</span></td>
+            <td>{{i.current_address}}</td>
+            <td>{{i.permanent_address}}</td>
+            <td>{{i.created}}</td>
+            <td> 
+            <a href='{% url "donatory:blood-form-edit" i.id %}'><span class='font-weight-bold ui horizontal label orange'>Edit</span></a>
+            <a href='{% url "donatory:blood-form-delete" i.id %}'><span class='font-weight-bold ui horizontal label red'>Delete</span></a>
+
+            </td>
+
+        </tr>
+        {% endif %}
+        {% empty %}
+        <p class="ui horizontal message red p-3 mt-3">We Couldn't Found Any Donor Your Search</p>
+        {% endfor %}
+    </tbody>
+</table>
+</section>
+
+{% include 'donatory/footer.html' %}
+{% endblock %}

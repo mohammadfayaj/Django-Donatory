@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+    {% block extra_head %}
+    {% endblock %}
+    <!-- https://images.pexels.com/photos/327441/pexels-photo-327441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 -->
+
+  <style>
+
+    .hero {
+    background-image: url(https://images.pexels.com/photos/2061219/pexels-photo-2061219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
+    background-repeat: repeat-x;  
+    background-attachment: fixed; 
+    opacity: 0.9;                 
+    width: 100%;
+    height: 100%;
+    margin:auto; 
+    position:absolute;
+    padding: 0;
+    }
+
+  </style>
+
+  </head>
+  <body class="hero">
+    {% block body %}
+
+    {% if messages %}
+    <div class='container mt-2 ui message green'>
+      <strong>Messages: </strong>
+      {% for message in messages %}
+      {{message}}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="container card shadow p-5" style="margin-top: 10rem;">
+
+    {% block content %}
+    {% endblock %}
+
+    {% endblock %} <!--block body-->
+
+    {% block extra_body %}
+    {% endblock %}
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+</html>
