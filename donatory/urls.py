@@ -1,7 +1,7 @@
 from django.urls import path
 from donatory import views
 
-app_name = 'donatroy'
+app_name = 'donatory'
 
 urlpatterns = [
     path('', views.donatory_home, name='home'),
