@@ -60,7 +60,7 @@
         {% for i in filter.qs %}
         {% if i in filter.qs %}
         <tr>
-            <td>{{i.id}}</td>
+            <td>{{ forloop.counter }}</td>
             {% if not i.profile_picture %}
              <td> <img class="ui mini rounded image" src="" alt="" style="height: 50px; width: 50px;"></td>
             {% else %}
