@@ -1,0 +1,13 @@
+{% extends 'donatory/base.html' %}
+
+{% block content %}
+<div class="ui message red container mt-5">
+	<strong>404 Authorized Credential Not Found</strong>
+	<p>Sorry Your Not Authorized to access this page, Try again later</p>
+	<p>May Be That's Not Your Post</p>
+
+	<span class="ui label horizontal green text-light"><a href="{% url 'donatory:home' %}">Go Back Home</a></span>
+
+
+</div>
+{% endblock %}

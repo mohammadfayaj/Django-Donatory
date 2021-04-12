@@ -1,57 +1,43 @@
+{% load i18n static %}
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block head_title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+      
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
-    {% block extra_head %}
-    {% endblock %}
-    <!-- https://images.pexels.com/photos/327441/pexels-photo-327441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 -->
 
-  <style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    .hero {
-    background-image: url(https://images.pexels.com/photos/2061219/pexels-photo-2061219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
-    background-repeat: repeat-x;  
-    background-attachment: fixed; 
-    opacity: 0.9;                 
-    width: 100%;
-    height: 100%;
-    margin:auto; 
-    position:absolute;
-    padding: 0;
-    }
 
-  </style>
+  <title>{% block head_title %}{% endblock %}</title>
 
-  </head>
-  <body class="hero">
-    {% block body %}
+  {% include 'account/parts/bootstrap.html' %}
 
-    {% if messages %}
-    <div class='container mt-2 ui message green'>
-      <strong>Messages: </strong>
-      {% for message in messages %}
-      {{message}}
-      {% endfor %}
-    </div>
-    {% endif %}
+  {% block custom_css %}
+    <link href="{% static 'accounts/allauth-bootstrap4.css' %}" rel="stylesheet">
+  {% endblock %}
 
-    <div class="container card shadow p-5" style="margin-top: 10rem;">
+  {% include 'account/parts/head.html' %}
+</head>
 
-    {% block content %}
-    {% endblock %}
+<body>
 
-    {% endblock %} <!--block body-->
+{% block body %}
+{% endblock %}
 
-    {% block extra_body %}
-    {% endblock %}
+{% block endofpage %}
+{% endblock %}
 
-    </div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-  </body>
+</body>
 </html>
+
+
+

@@ -7,10 +7,14 @@
     #div_id_phone_number #tel_1 {
         margin: 1rem 0rem 0rem 0rem;
       }
+
+    @media only screen and (min-width: 1400px) and (max-width: 1600px) {
     .card{
         margin-top: 10rem;
         margin-left: 13rem;
         position: absolute;
+        }
+
     }
 </style>
 
@@ -44,6 +48,8 @@
             {{ form.permanent_address| as_crispy_field }}
         </div>
     </div>
+
+    <input type="" name="next" value="{{ request.META.HTTP_REFERER }}" style="display: none;">
     <button class="ui button green" type="submit">Submit</button>
     </form>
 </section>
