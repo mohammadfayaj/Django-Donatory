@@ -3,10 +3,7 @@ from donatory.models import DonorInformation
 from donatory.forms import DonorInformationForm
 from .filters import DonorInformationFilter
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 from django.contrib.auth.models import User
-=======
->>>>>>> b175e0180d7a4f4ae5ff8ce856f00761d98e86c0
 
 def donatory_home(request):
     template = 'donatory/donatory_home.html'
@@ -28,10 +25,6 @@ def donor_blood_form_edit(request,id):
         form = DonorInformationForm(instance=qs)
     return render(request, template, {'form': form, 'qs':qs })
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> b175e0180d7a4f4ae5ff8ce856f00761d98e86c0
 @login_required
 def donor_blood_form_delete(request,id):
     template = 'donatory/confirm_delete.html'
